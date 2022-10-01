@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+$red: hsl(0, 100%, 74%);
+$green: hsl(154, 59%, 51%);
+$blue: hsl(248, 32%, 49%);
+$dark-blue: hsl(249, 10%, 26%);
+$grayish-blue: hsl(246, 25%, 77%);
+$white: white;
+$body-font: "Poppins", sans-serif;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scrollbar-width: none;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  background-color: grey;
+}
+
+body {
+  font-family: $body-font;
+  background-image: url(images/bg-intro-desktop.png);
+  background-color: $red;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 80%;
+}
+
+.left {
+  align-self: center;
+  .info-container {
+    h1 {
+      font-size: 2.6rem;
+      color: $white;
+    }
+    p {
+      color: $white;
+      margin-top: 1rem;
+      line-height: 1.5rem;
+    }
+  }
+}
+
+.right {
+  .notification {
+    padding: 0.7rem 0;
+    border-radius: 5px;
+    background-color: $blue;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    box-shadow: 1px 5px 3px 0px rgb(0, 0, 0, 0.27);
+    span {
+      font-weight: 400;
+    }
+  }
+}
+
+form {
+  margin-top: 1rem;
+  background-color: $white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.9rem 1.9rem;
+  row-gap: 1.3rem;
+  .input-field {
+    width: 100%;
+    position: relative;
+    input {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 5px;
+      outline: none;
+      border: 1px solid $grayish-blue;
+      &:focus {
+        border-color: $blue;
+      }
+      &::placeholder {
+        font-weight: 700;
+        padding-left: 1rem;
+      }
+    }
+    img {
+      position: absolute;
+      left: 26rem;
+      top: 13px;
+      display: none;
+    }
+    .incorrect-email-error,
+    .empty-error {
+      text-align: end;
+      color: $red;
+      font-style: italic;
+      font-size: 0.7rem;
+    }
+    .incorrect-email-error {
+      display: none;
+    }
+    .empty-error {
+      visibility: hidden;
+    }
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 1rem;
+    text-transform: uppercase;
+    background-color: $green;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: $white;
+    font-weight: 700;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  .terms-services {
+    font-size: 11px;
+    color: $grayish-blue;
+    span {
+      color: $red;
+      font-weight: 700;
+    }
+  }
+}
+
+footer {
+  margin-top: 10px;
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+    a {
+      color: hsl(228, 45%, 44%);
+    }
+  }
+}
+
+/* Responsive CSS */
+
+@media (max-width: 850px) {
+  .main-container {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+    width: 60%;
+  }
+  .info-container {
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .main-container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 550px) {
+  .main-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 450px) {
+  .main-container {
+    width: 95%;
+  }
+  .left {
+    .info-container {
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+}
